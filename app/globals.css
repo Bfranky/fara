@@ -1,26 +1,146 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #1a4d7c;
+  --navy-dark: #0f2d4a;
+  --gold: #d4af37;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Jost', sans-serif;
+  color: #1a1a1a;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Navbar */
+.nav-link {
+  @apply text-white/80 hover:text-gold transition-colors duration-200 text-sm font-medium tracking-wide uppercase;
+}
+
+.nav-scrolled .nav-link {
+  @apply text-navy hover:text-gold;
+}
+
+/* Buttons */
+.btn-whatsapp {
+  @apply bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-green-500/30 hover:-translate-y-0.5;
+}
+
+.btn-primary {
+  @apply bg-gold hover:bg-gold-dark text-navy-dark font-semibold py-3 px-6 rounded-full transition-all duration-300 hover:-translate-y-0.5 shadow-lg;
+}
+
+.btn-outline {
+  @apply border-2 border-gold text-gold hover:bg-gold hover:text-navy-dark font-semibold py-3 px-6 rounded-full transition-all duration-300;
+}
+
+/* Section headings */
+.section-tag {
+  @apply text-gold font-body text-sm font-medium tracking-[0.3em] uppercase mb-3;
+}
+
+.section-title {
+  @apply font-display text-4xl md:text-5xl text-navy-dark font-light leading-tight;
+}
+
+.section-divider {
+  @apply w-16 h-0.5 bg-gold mt-4 mb-6;
+}
+
+/* Room Cards */
+.room-card {
+  @apply bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2;
+}
+
+/* Amenity Cards */
+.amenity-card {
+  @apply bg-white rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 border border-gray-100;
+}
+
+/* Review Cards */
+.review-card {
+  @apply bg-white rounded-2xl p-6 shadow-md border border-gray-100;
+}
+
+/* Scroll to top */
+#scroll-top {
+  @apply fixed bottom-6 right-6 bg-navy text-white w-12 h-12 rounded-full flex items-center justify-center shadow-xl cursor-pointer transition-all duration-300 z-50;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+}
+
+#scroll-top.visible {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  @apply fixed inset-0 bg-black/90 z-[999] flex items-center justify-center;
+  display: none;
+}
+
+.lightbox-overlay.active {
+  display: flex;
+}
+
+/* WhatsApp float */
+.wa-float {
+  @apply fixed bottom-24 right-6 z-50 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-all duration-300 hover:scale-110;
+}
+
+/* Offer banner */
+.offer-banner {
+  background: linear-gradient(135deg, var(--gold) 0%, #c49a22 100%);
+}
+
+/* Hero gradient */
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(10,28,50,0.92) 0%, rgba(26,77,124,0.75) 100%);
+}
+
+/* Stats */
+.stat-card {
+  @apply text-center py-6 px-4;
+}
+
+/* Animate on scroll */
+.aos-init {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.aos-init.aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Form inputs */
+.form-input {
+  @apply w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-navy focus:ring-2 focus:ring-navy/10 transition-all duration-200;
+}
+
+/* Gold star */
+.star-filled {
+  color: #d4af37;
+}
+.star-empty {
+  color: #d4af37;
+  opacity: 0.3;
 }
