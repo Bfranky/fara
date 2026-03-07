@@ -23,30 +23,16 @@ export const metadata: Metadata = {
     "Book your stay at FARA Hotel & Suites in Ojokoro, Lagos. Comfortable rooms, 24/7 service, secure parking. Rated 3.9/5 stars. Call 0902 613 3762",
   openGraph: {
     title: "FARA Hotel & Suites | Alagbado, Lagos",
-    description:
-      "Comfortable rooms, 24/7 service & secure parking. Rated 3.9/5 stars. Book now!",
+    description: "Comfortable rooms, 24/7 service & secure parking. Rated 3.9/5 stars. Book now!",
     type: "website",
-    images: [
-      {
-        url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200",
-        width: 1200,
-        height: 630,
-        alt: "FARA Hotel & Suites Lagos",
-      },
-    ],
+    images: [{ url: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200", width: 1200, height: 630 }],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body
-        className={`${cormorant.variable} ${jost.variable} font-jost bg-white text-gray-900 overflow-x-hidden`}
-      >
+    <html lang="en" className={`${cormorant.variable} ${jost.variable} scroll-smooth`}>
+      <body className="bg-white text-gray-900 overflow-x-hidden">
         {children}
       </body>
     </html>

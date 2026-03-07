@@ -14,26 +14,24 @@ export default function FloatingButtons() {
 
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-center gap-3">
-      {/* WhatsApp */}
-      <a
-        href={HOTEL.whatsapp}
-        target="_blank"
-        rel="noopener noreferrer"
+      <a href={HOTEL.whatsapp} target="_blank" rel="noopener noreferrer"
         title="Chat on WhatsApp"
-        className="w-13 h-13 w-[52px] h-[52px] bg-[#25d366] rounded-full flex items-center justify-center shadow-lg shadow-green-500/40 hover:scale-110 transition-transform animate-float"
-      >
-        <MessageCircle size={26} fill="white" className="text-white" />
+        className="w-13 h-13 rounded-full flex items-center justify-center hover:scale-110 transition-transform"
+        style={{ background: "#25d366", boxShadow: "0 4px 20px rgba(37,211,102,0.45)", animation: "float 3s ease-in-out infinite" }}>
+        <MessageCircle size={26} fill="white" style={{ color: "white" }} />
       </a>
 
-      {/* Scroll to top */}
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        className={`w-11 h-11 bg-navy rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:-translate-y-1 ${
-          showTop ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        aria-label="Scroll to top"
-      >
-        <ChevronUp size={20} className="text-white" strokeWidth={2.5} />
+        className="w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-1 border-none cursor-pointer"
+        style={{
+          background: "#1a4d7c",
+          boxShadow: "0 4px 15px rgba(0,0,0,0.3)",
+          opacity: showTop ? 1 : 0,
+          pointerEvents: showTop ? "all" : "none",
+        }}
+        aria-label="Scroll to top">
+        <ChevronUp size={20} style={{ color: "white" }} strokeWidth={2.5} />
       </button>
     </div>
   );
